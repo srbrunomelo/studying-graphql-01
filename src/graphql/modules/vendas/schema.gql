@@ -1,0 +1,9 @@
+type Venda {
+  vendedor: Usuario
+  comprador: Usuario
+  produto: Produto
+}
+
+type Query {
+  vendas: [Venda]
+}

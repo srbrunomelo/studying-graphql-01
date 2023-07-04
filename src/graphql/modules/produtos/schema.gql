@@ -1,0 +1,9 @@
+type Produto {
+  id: Int
+  descricao: String
+  criador: Usuario
+}
+
+type Query {
+  produtos: [Produto]
+}
