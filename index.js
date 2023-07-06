@@ -7,7 +7,16 @@ const schema = makeExecutableSchema({
   resolvers,
 });
 
-const server = new ApolloServer({ schema });
+const server = new ApolloServer({
+  schema,
+  formatError: (err) => {
+    if (err.message.startsWith("Usuário existente")) {
+      return new Error(err.message);
+    }
+
+    return err;
+  },
+});
 
 server.listen().then(({ url }) => {
   console.log(url);
